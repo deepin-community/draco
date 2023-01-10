@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all reproducible=+all future=+lfs
+export DEB_CXXFLAGS_MAINT_APPEND = -fvisibility-inlines-hidden
+
+#BUILD_TESTS = $(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),OFF,ON)
+# Unit tests are currently broken
+BUILD_TESTS = OFF
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure --buildsystem=cmake -- \
+		-DBUILD_SHARED_LIBS=ON \
+		-DDRACO_ANIMATION_ENCODING=ON \
+		-DDRACO_DECODER_ATTRIBUTE_DEDUPLICATION=ON \
+		-DDRACO_GLTF=ON \
+		-DDRACO_JS_GLUE=OFF \
+		-DDRACO_MAYA_PLUGIN=OFF \
+		-DDRACO_MESH_COMPRESSION=ON \
+		-DDRACO_POINT_CLOUD_COMPRESSION=ON \
+		-DDRACO_TESTS=$(BUILD_TESTS) \
+		-DDRACO_UNITY_PLUGIN=OFF \
+		-DDRACO_VERBOSE=ON \
+		-DDRACO_WASM=OFF \
+		-DCMAKE_SKIP_RPATH=ON
+
+execute_after_dh_auto_install:
+	mv debian/tmp/usr/bin/draco_encoder-* debian/tmp/usr/bin/draco_encoder
+	mv debian/tmp/usr/bin/draco_decoder-* debian/tmp/usr/bin/draco_decoder

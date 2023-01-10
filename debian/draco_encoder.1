@@ -1,0 +1,54 @@
+.TH DRACO_ENCODER 1 "" "" "Draco Compression"
+.SH NAME
+draco_encoder \- compress 3D geometric meshes and point clouds
+.SH SYNOPSIS
+.SY draco_encoder
+.BR \-i " " \fIinput\fR
+.OP \-o output
+.RI [ options ]
+.YS
+.SH DESCRIPTION
+Draco is a format for efficient compression of 3D graphics data such as
+geometric meshes or point clouds.
+.B draco_encoder
+is the compression tool.
+.PP
+The following options are available:
+.TP
+.BR \-i " " \fIinput\fR
+input file name in
+.B .ply
+or
+.B .obj
+format
+.TP
+.BR \-o " " \fIoutput\fR
+output file name
+.TP
+.BR \-qp " " \fIvalue\fR
+quantization bits for the position (default: 11)
+.TP
+.BR \-qt " " \fIvalue\fR
+quantization bits for the texture coordinates (default: 10)
+.TP
+.BR \-qn " " \fIvalue\fR
+quantization bits for the normal vector (default: 8)
+.TP
+.BR \-qg " " \fIvalue\fR
+quantization bits for any generic attribute (default: 8)
+.TP
+.BR \-cl " " \fIvalue\fR
+compression level from 0 to 10 (default: 7)
+.TP
+.BR \-\-skip " " \fIattribute\fR
+skip a given attribute (NORMAL, TEX_COORD, GENERIC)
+.TP
+.B \-\-metadata
+use metadata to encode extra information in mesh files
+.TP
+.B \-\-point_cloud
+force the input to be encoded as a point cloud
+.PP
+Negative quantization values will skip the specified attribute
+.SH SEE ALSO
+.BR draco_decoder (1)

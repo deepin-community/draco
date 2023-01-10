@@ -1,0 +1,31 @@
+.TH DRACO_DECODER 1 "" "" "Draco Compression"
+.SH NAME
+draco_decoder \- decompress 3D geometric meshes and point clouds
+.SH SYNOPSIS
+.SY draco_decoder
+.BR \-i " " \fIinput\fR
+.OP \-o output
+.YS
+.SH DESCRIPTION
+Draco is a format for efficient compression of 3D graphics data such as
+geometric meshes or point clouds.
+.B draco_decoder
+is the decompression tool.
+.PP
+The following options are available:
+.TP
+.BR \-i " " \fIinput\fR
+input file name in
+.B .drc
+format
+.TP
+.BR \-o " " \fIoutput\fR
+output file name
+.PP
+The output format is inferred from the output file extension, and can be
+either
+.B .ply
+or
+.BR .obj .
+.SH SEE ALSO
+.BR draco_encoder (1)

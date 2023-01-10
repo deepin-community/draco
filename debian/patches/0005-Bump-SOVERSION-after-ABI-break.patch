@@ -1,0 +1,23 @@
+From: =?utf-8?q?Timo_R=C3=B6hling?= <roehling@debian.org>
+Date: Sat, 16 Oct 2021 19:51:12 +0200
+Subject: Bump SOVERSION after ABI break
+
+---
+ cmake/draco_targets.cmake | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/draco_targets.cmake b/cmake/draco_targets.cmake
+index f2acc72..973f38b 100644
+--- a/cmake/draco_targets.cmake
++++ b/cmake/draco_targets.cmake
+@@ -341,8 +341,8 @@ macro(draco_add_library)
+     # VERSION and SOVERSION as necessary
+     if((lib_TYPE STREQUAL BUNDLE OR lib_TYPE STREQUAL SHARED) AND NOT MSVC)
+       set_target_properties(${lib_NAME}
+-                            PROPERTIES VERSION ${DRACO_SOVERSION} SOVERSION
+-                                       ${DRACO_SOVERSION_MAJOR})
++                            PROPERTIES VERSION ${DRACO_SOVERSION}a SOVERSION
++                                       ${DRACO_SOVERSION_MAJOR}a)
+     endif()
+   endif()
+ 

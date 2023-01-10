@@ -1,0 +1,41 @@
+From: =?utf-8?q?Timo_R=C3=B6hling?= <timo@gaussglocke.de>
+Date: Wed, 2 Dec 2020 15:17:25 +0100
+Subject: Install proper CMake targets
+
+---
+ cmake/draco-config.cmake.template | 3 ++-
+ cmake/draco_install.cmake         | 8 ++++++--
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/cmake/draco-config.cmake.template b/cmake/draco-config.cmake.template
+index ca4a456..1a46102 100644
+--- a/cmake/draco-config.cmake.template
++++ b/cmake/draco-config.cmake.template
+@@ -1,2 +1,3 @@
++include(${CMAKE_CURRENT_LIST_DIR}/draco-targets.cmake)
+ set(DRACO_INCLUDE_DIRS "@DRACO_INCLUDE_DIRS@")
+-set(DRACO_LIBRARIES "draco")
++set(DRACO_LIBRARIES "draco::draco_shared")
+diff --git a/cmake/draco_install.cmake b/cmake/draco_install.cmake
+index 9f48b6a..5f884ff 100644
+--- a/cmake/draco_install.cmake
++++ b/cmake/draco_install.cmake
+@@ -73,12 +73,16 @@ macro(draco_setup_install_target)
+     install(TARGETS draco DESTINATION
+                     "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
+   else()
+-    install(TARGETS draco_static DESTINATION
++    target_include_directories(draco_static INTERFACE ${DRACO_INCLUDE_DIRS})
++    install(TARGETS draco_static EXPORT draco-targets DESTINATION
+                     "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
+     if(BUILD_SHARED_LIBS)
+-      install(TARGETS draco_shared DESTINATION
++      target_include_directories(draco_shared INTERFACE ${DRACO_INCLUDE_DIRS})
++      install(TARGETS draco_shared EXPORT draco-targets DESTINATION
+                       "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
+     endif()
++    install(EXPORT draco-targets NAMESPACE draco:: DESTINATION
++                   "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/cmake/draco")
+   endif()
+ 
+   if(DRACO_UNITY_PLUGIN)

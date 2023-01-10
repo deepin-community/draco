@@ -1,0 +1,5 @@
+0001-Use-system-Googletest-sources.patch
+0002-Fix-install-location-of-draco-config.cmake.patch
+0003-Fix-removal-of-build-dir-prefix-from-include-path.patch
+0004-Install-proper-CMake-targets.patch
+0005-Bump-SOVERSION-after-ABI-break.patch

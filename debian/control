@@ -1,0 +1,70 @@
+Source: draco
+Section: libs
+Priority: optional
+Maintainer: Timo Röhling <roehling@debian.org>
+Build-Depends: debhelper-compat (= 13), cmake, googletest
+Homepage: https://github.com/google/draco
+Standards-Version: 4.6.0
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/roehling/draco.git
+Vcs-Browser: https://salsa.debian.org/roehling/draco
+
+Package: draco
+Section: graphics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Encoder and decoder for 3D geometric meshes and point clouds
+ Draco is a library for compressing and decompressing 3D geometric meshes
+ and point clouds. It is intended to improve the storage and transmission
+ of 3D graphics.
+ .
+ Draco is designed and built for compression efficiency and speed. The code
+ supports compressing points, connectivity information, texture coordinates,
+ color information, normals, and any other generic attributes associated with
+ geometry. With Draco, applications using 3D graphics can be significantly
+ smaller without compromising visual fidelity. For users, this means apps can
+ now be downloaded faster, 3D graphics in the browser can load quicker, and VR
+ and AR scenes can now be transmitted with a fraction of the bandwidth and
+ rendered quickly.
+ .
+ This package provides command line tools to compress and decompress files
+ using Draco.
+
+Package: libdraco1a
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Library for compressing 3D geometric meshes and point clouds
+ Draco is a library for compressing and decompressing 3D geometric meshes
+ and point clouds. It is intended to improve the storage and transmission
+ of 3D graphics.
+ .
+ Draco is designed and built for compression efficiency and speed. The code
+ supports compressing points, connectivity information, texture coordinates,
+ color information, normals, and any other generic attributes associated with
+ geometry. With Draco, applications using 3D graphics can be significantly
+ smaller without compromising visual fidelity. For users, this means apps can
+ now be downloaded faster, 3D graphics in the browser can load quicker, and VR
+ and AR scenes can now be transmitted with a fraction of the bandwidth and
+ rendered quickly.
+
+Package: libdraco-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libdraco1a (= ${binary:Version}), ${misc:Depends}
+Description: Library for compressing 3D geometric meshes and point clouds (headers)
+ Draco is a library for compressing and decompressing 3D geometric meshes
+ and point clouds. It is intended to improve the storage and transmission
+ of 3D graphics.
+ .
+ Draco is designed and built for compression efficiency and speed. The code
+ supports compressing points, connectivity information, texture coordinates,
+ color information, normals, and any other generic attributes associated with
+ geometry. With Draco, applications using 3D graphics can be significantly
+ smaller without compromising visual fidelity. For users, this means apps can
+ now be downloaded faster, 3D graphics in the browser can load quicker, and VR
+ and AR scenes can now be transmitted with a fraction of the bandwidth and
+ rendered quickly.
+ .
+ This package provides the development headers for the library.

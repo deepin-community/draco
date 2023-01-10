@@ -1,0 +1,49 @@
+draco (1.4.3+dfsg-3) unstable; urgency=medium
+
+  * Refresh symbols for s390x.
+    Thanks to Gianfranco Costamagna (Closes: #998807)
+
+ -- Timo Röhling <roehling@debian.org>  Mon, 08 Nov 2021 21:55:54 +0100
+
+draco (1.4.3+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Timo Röhling <roehling@debian.org>  Thu, 28 Oct 2021 22:58:50 +0200
+
+draco (1.4.3+dfsg-1) experimental; urgency=medium
+
+  * New upstream version 1.4.3+dfsg
+  * Update patches
+    - Drop Fix-FTBFS-with-GCC-11.patch (applied upstream)
+  * Bump SONAME to 1a
+  * Bump Standards-Version to 4.6.0 (no change)
+
+ -- Timo Röhling <roehling@debian.org>  Sat, 16 Oct 2021 19:57:28 +0200
+
+draco (1.4.1+dfsg-4) unstable; urgency=medium
+
+  * Fix FTBFS with GCC-11 (Closes: #984035)
+  * Update maintainer email address
+
+ -- Timo Röhling <roehling@debian.org>  Mon, 16 Aug 2021 20:55:45 +0200
+
+draco (1.4.1+dfsg-3) unstable; urgency=medium
+
+  * Fix FTBFS on sh4
+  * Fix keyword error in d/watch
+  * Fix FTBFS on Ubuntu ppc64el and s390x
+
+ -- Timo Röhling <timo@gaussglocke.de>  Mon, 04 Jan 2021 22:11:41 +0100
+
+draco (1.4.1+dfsg-2) unstable; urgency=medium
+
+  * Fix missing symbol on some 64 bit architectures
+
+ -- Timo Röhling <timo@gaussglocke.de>  Fri, 25 Dec 2020 14:54:39 +0100
+
+draco (1.4.1+dfsg-1) unstable; urgency=medium
+
+  * Initial release (Closes: #977128)
+
+ -- Timo Röhling <timo@gaussglocke.de>  Sun, 13 Dec 2020 20:27:30 +0100
