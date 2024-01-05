@@ -1,0 +1,46 @@
+.TH DRACO_TRANSCODER 1 "" "" "Draco Compression"
+.SH NAME
+draco_transcoder \- transcode compressed 3D geometric meshes and point clouds
+.SH SYNOPSIS
+.SY draco_transcoder
+.RI [ options ]
+.BR \-i " " \fIinput\fR
+.BR \-o " " \fIoutput\fR
+.YS
+.SH DESCRIPTION
+Draco is a format for efficient compression of 3D graphics data such as
+geometric meshes or point clouds.
+.B draco_transcoder
+is the transcoding tool.
+.PP
+The following options are available:
+.TP
+.BR \-i " " \fIinput\fR
+input file name
+.TP
+.BR \-o " " \fIoutput\fR
+output file name
+.TP
+.BR \-qp " " \fIvalue\fR
+quantization bits for the position (default: 11)
+.TP
+.BR \-qt " " \fIvalue\fR
+quantization bits for the texture coordinates (default: 10)
+.TP
+.BR \-qn " " \fIvalue\fR
+quantization bits for the normal vector (default: 8)
+.TP
+.BR \-qc " " \fIvalue\fR
+quantization bits for the color attribute (default: 8)
+.TP
+.BR \-qtg " " \fIvalue\fR
+quantization bits for the tangent attribute (default: 8)
+.TP
+.BR \-qw " " \fIvalue\fR
+quantization bits for the weight attribute (default: 8)
+.TP
+.BR \-qg " " \fIvalue\fR
+quantization bits for any generic attribute (default: 8)
+.SH SEE ALSO
+.BR draco_decoder "(1), " draco_encoder (1)
+

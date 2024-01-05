@@ -18,8 +18,18 @@
 #include <string>
 
 #include "draco/io/file_utils.h"
+#include "draco/io/file_writer_interface.h"
 #include "draco/io/obj_decoder.h"
 #include "draco/io/ply_decoder.h"
+#include "draco/io/stl_decoder.h"
+#ifdef DRACO_TRANSCODER_SUPPORTED
+#include "draco/compression/draco_compression_options.h"
+#include "draco/compression/encode.h"
+#include "draco/io/gltf_decoder.h"
+#include "draco/io/gltf_encoder.h"
+#include "draco/io/obj_encoder.h"
+#include "draco/io/ply_encoder.h"
+#endif
 
 namespace draco {
 
@@ -55,6 +65,7 @@ StatusOr<std::unique_ptr<Mesh>> ReadMeshFromFile(
     // Wavefront OBJ file format.
     ObjDecoder obj_decoder;
     obj_decoder.set_use_metadata(options.GetBool("use_metadata", false));
+    obj_decoder.set_preserve_polygons(options.GetBool("preserve_polygons"));
     const Status obj_status =
         obj_decoder.DecodeFromFile(file_name, mesh.get(), mesh_files);
     if (!obj_status.ok()) {
@@ -63,11 +74,22 @@ StatusOr<std::unique_ptr<Mesh>> ReadMeshFromFile(
     return std::move(mesh);
   }
   if (extension == "ply") {
-    // Wavefront PLY file format.
+    // Stanford PLY file format.
     PlyDecoder ply_decoder;
     DRACO_RETURN_IF_ERROR(ply_decoder.DecodeFromFile(file_name, mesh.get()));
     return std::move(mesh);
   }
+  if (extension == "stl") {
+    // STL file format.
+    StlDecoder stl_decoder;
+    return stl_decoder.DecodeFromFile(file_name);
+  }
+#ifdef DRACO_TRANSCODER_SUPPORTED
+  if (extension == "gltf" || extension == "glb") {
+    GltfDecoder gltf_decoder;
+    return gltf_decoder.DecodeFromFile(file_name, mesh_files);
+  }
+#endif
 
   // Otherwise not an obj file. Assume the file was encoded with one of the
   // draco encoding methods.

@@ -13,19 +13,16 @@ BUILD_TESTS = OFF
 override_dh_auto_configure:
 	dh_auto_configure --buildsystem=cmake -- \
 		-DBUILD_SHARED_LIBS=ON \
-		-DDRACO_ANIMATION_ENCODING=ON \
-		-DDRACO_DECODER_ATTRIBUTE_DEDUPLICATION=ON \
-		-DDRACO_GLTF=ON \
-		-DDRACO_JS_GLUE=OFF \
-		-DDRACO_MAYA_PLUGIN=OFF \
-		-DDRACO_MESH_COMPRESSION=ON \
-		-DDRACO_POINT_CLOUD_COMPRESSION=ON \
 		-DDRACO_TESTS=$(BUILD_TESTS) \
-		-DDRACO_UNITY_PLUGIN=OFF \
-		-DDRACO_VERBOSE=ON \
-		-DDRACO_WASM=OFF \
+		-DDRACO_VERBOSE=3 \
+		-DDRACO_TRANSCODER_SUPPORTED=ON \
+		-DDRACO_EIGEN_PATH=/usr/include/eigen3 \
+		-DDRACO_FILESYSTEM_PATH=/usr/include \
+		-DDRACO_GOOGLETEST_PATH=/usr/src/googletest \
+		-DDRACO_TINYGLTF_PATH=/usr/include/stb \
 		-DCMAKE_SKIP_RPATH=ON
 
 execute_after_dh_auto_install:
 	mv debian/tmp/usr/bin/draco_encoder-* debian/tmp/usr/bin/draco_encoder
 	mv debian/tmp/usr/bin/draco_decoder-* debian/tmp/usr/bin/draco_decoder
+	mv debian/tmp/usr/bin/draco_transcoder-* debian/tmp/usr/bin/draco_transcoder

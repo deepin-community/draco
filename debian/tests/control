@@ -1,0 +1,4 @@
+Tests: build-and-link check-idempotency
+Depends: libdraco-dev, cmake, g++
+Restrictions: superficial
+
