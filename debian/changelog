@@ -1,3 +1,113 @@
+draco (1.5.6+dfsg-3) unstable; urgency=medium
+
+  * Fix FTBFS with libtinygltf-dev >= 2.8.12 (Closes: #1041021)
+
+ -- Timo Röhling <roehling@debian.org>  Fri, 14 Jul 2023 20:13:37 +0200
+
+draco (1.5.6+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Timo Röhling <roehling@debian.org>  Tue, 27 Jun 2023 00:35:24 +0200
+
+draco (1.5.6+dfsg-1) experimental; urgency=medium
+
+  * Fix FTBFS with GCC-13 (Closes: #1037626)
+  * New upstream version 1.5.6+dfsg
+  * Refresh patches
+  * Bump SONAME to 8
+  * Bump Standards-Version to 4.6.2
+
+ -- Timo Röhling <roehling@debian.org>  Sun, 18 Jun 2023 19:41:30 +0200
+
+draco (1.5.5+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Timo Röhling <roehling@debian.org>  Thu, 03 Nov 2022 23:31:51 +0100
+
+draco (1.5.5+dfsg-1) experimental; urgency=medium
+
+  * Update d/watch
+  * New upstream version 1.5.5+dfsg
+  * SOVERSION bump to 7
+
+ -- Timo Röhling <roehling@debian.org>  Mon, 31 Oct 2022 21:25:09 +0100
+
+draco (1.5.3+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+  * Set DRACO_LIBRARIES for backwards compatibility
+
+ -- Timo Röhling <roehling@debian.org>  Sun, 28 Aug 2022 20:18:42 +0200
+
+draco (1.5.3+dfsg-1) experimental; urgency=medium
+
+  [ Debian Janitor ]
+  * debian/copyright: use spaces rather than tabs to start
+    continuation lines.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit,
+    Repository, Repository-Browse.
+
+  [ Timo Röhling ]
+  * New upstream version 1.5.3+dfsg
+  * Bump SONAME to 5
+  * Bump Standards-Version to 4.6.1
+
+ -- Timo Röhling <roehling@debian.org>  Sat, 09 Jul 2022 22:04:00 +0200
+
+draco (1.5.2+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Timo Röhling <roehling@debian.org>  Sat, 19 Feb 2022 19:49:32 +0100
+
+draco (1.5.2+dfsg-1) experimental; urgency=medium
+
+  * New upstream version 1.5.2+dfsg
+  * SOVERSION bump to 4
+
+ -- Timo Röhling <roehling@debian.org>  Fri, 18 Feb 2022 01:14:00 +0100
+
+draco (1.5.0+dfsg-5) unstable; urgency=medium
+
+  * Do not fail if find_package() is called twice (LP: #1958432)
+
+ -- Timo Röhling <roehling@debian.org>  Wed, 19 Jan 2022 19:51:42 +0100
+
+draco (1.5.0+dfsg-4) unstable; urgency=medium
+
+  * Release to unstable.
+  * Update autopkgtest
+
+ -- Timo Röhling <roehling@debian.org>  Sat, 18 Dec 2021 01:17:57 +0100
+
+draco (1.5.0+dfsg-3) experimental; urgency=medium
+
+  * Provide DRACO_LIBRARIES variable for backwards compatibility
+  * Draco needs at least Eigen 3.4
+
+ -- Timo Röhling <roehling@debian.org>  Fri, 17 Dec 2021 23:25:03 +0100
+
+draco (1.5.0+dfsg-2) experimental; urgency=medium
+
+  * Export backwards-compatible CMake targets
+  * Add superficial autopkgtest
+  * Install missing headers
+  * Install draco_transcoder
+  * Update manual pages
+
+ -- Timo Röhling <roehling@debian.org>  Wed, 15 Dec 2021 21:46:25 +0100
+
+draco (1.5.0+dfsg-1) experimental; urgency=medium
+
+  * New upstream version 1.5.0+dfsg
+  * Bump SOVERSION to 3
+  * Use DRACO_ default build options
+  * Enable DRACO_TRANSCODER_SUPPORTED
+
+ -- Timo Röhling <roehling@debian.org>  Sat, 11 Dec 2021 14:17:55 +0100
+
 draco (1.4.3+dfsg-3) unstable; urgency=medium
 
   * Refresh symbols for s390x.

@@ -1,5 +1,6 @@
-0001-Use-system-Googletest-sources.patch
-0002-Fix-install-location-of-draco-config.cmake.patch
-0003-Fix-removal-of-build-dir-prefix-from-include-path.patch
-0004-Install-proper-CMake-targets.patch
-0005-Bump-SOVERSION-after-ABI-break.patch
+0001-Fix-removal-of-build-dir-prefix-from-include-path.patch
+0002-Install-proper-CMake-targets.patch
+0003-Use-C-17-filesystem-library.patch
+0004-Set-DRACO_LIBRARIES-for-backwards-compatibility.patch
+0005-Fix-FTBFS-with-GCC-13.patch
+0006-Fix-tinygltf-FsCallbacks.patch
